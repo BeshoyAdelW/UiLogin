@@ -8,7 +8,7 @@ function ActivityIndicator({ visible = false }) {
     <LottieView
       autoPlay
       loop
-      source={require("../../assets/animations/loader5.json")}
+      source={require("../../assets/animations/loader.json")}
     />
   );
 }
