@@ -1,12 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { Dimensions, Image, StyleSheet, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import colors from "./app/config/colors";
+import ActivityIndicator from "./app/components/ActivityIndicator";
+
+const { height } = Dimensions.get("screen");
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <LinearGradient
+        colors={[colors.bgSecondary, colors.bgPrimary]}
+        style={styles.gradient}
+      />
+      <Image style={styles.image} source={require("./assets/logo.png")} />
+      <ActivityIndicator visible={true} />
     </View>
   );
 }
@@ -14,8 +22,18 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  gradient: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    height: height,
+  },
+  image: {
+    position: "absolute",
+    top: 0,
+    left: 0,
   },
 });
