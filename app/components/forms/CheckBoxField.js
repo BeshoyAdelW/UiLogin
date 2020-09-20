@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useFormikContext } from "formik";
 
-import { CheckBox, View, Text } from "react-native";
+import { CheckBox, View, Text, Modal, ScrollView, Button } from "react-native";
 import colors from "../../config/colors";
 import ErrorMessage from "./ErrorMessage";
+import TermsOfService from "../TermsOfService";
+import AppButton from "../Button";
 
 function CheckBoxField({ name, width, ...otherProps }) {
   const {
@@ -12,7 +14,8 @@ function CheckBoxField({ name, width, ...otherProps }) {
     touched,
     setFieldValue,
   } = useFormikContext();
-  let initialValue = false;
+  const [isVisible, setIsVisible] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
   return (
     <>
       <View
@@ -24,10 +27,10 @@ function CheckBoxField({ name, width, ...otherProps }) {
         }}
       >
         <CheckBox
-          value={initialValue}
+          value={isSelected}
           onValueChange={(value) => {
             setFieldValue(name, value);
-            initialValue = true;
+            setIsSelected(value);
           }}
           style={{ alignSelf: "center" }}
           onBlur={() => setFieldTouched(name)}
@@ -42,13 +45,28 @@ function CheckBoxField({ name, width, ...otherProps }) {
               fontWeight: "bold",
               textDecorationLine: "underline",
             }}
-            onPress={() => console.log("Terms & Conditions Pressed")}
+            onPress={() => setIsVisible(true)}
           >
             {`Terms & Conditions`}
           </Text>
         </Text>
       </View>
       <ErrorMessage error={errors[name]} visible={touched[name]} />
+      <Modal visible={isVisible} animationType="slide">
+        <View space="between" style={{ flex: 1, padding: 30 }}>
+          <ScrollView>
+            <TermsOfService />
+            <AppButton
+              style={{ backgroundColor: colors.primary, marginBottom: 15 }}
+              title="I Understand"
+              onPress={() => {
+                setIsSelected(true);
+                setIsVisible(false);
+              }}
+            />
+          </ScrollView>
+        </View>
+      </Modal>
     </>
   );
 }

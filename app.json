@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "DailyUiLogin",
-    "slug": "DailyUiLogin",
+    "name": "UiLogin",
+    "slug": "UiLogin",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#07485B"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

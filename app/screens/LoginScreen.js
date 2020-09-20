@@ -11,19 +11,19 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label("Password"),
 });
 
-function LoginScreen(props) {
+function LoginScreen({ navigation }) {
   return (
     <>
       <View style={[styles.container, { width: "100%" }]}>
         <AppLinearGradient height={320} />
         <Image style={styles.image} source={require("../../assets/logo.png")} />
-        <Text style={styles.text}>{`Welcome 
-to Daily UI Challenge`}</Text>
+        <Text style={styles.text}>{`Hello there, 
+Welcome Back`}</Text>
       </View>
       <View style={styles.container}>
         <Form
           initialValues={{ name: "", password: "" }}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={(values) => navigation.navigate("Welcome")}
           validationSchema={validationSchema}
         >
           <FormField
@@ -47,7 +47,7 @@ to Daily UI Challenge`}</Text>
           Don't have an account?{" "}
           <Text
             style={styles.signUpText}
-            onPress={() => console.log("Signup pressed!")}
+            onPress={() => navigation.navigate("Register")}
           >
             SIGN UP
           </Text>

@@ -16,7 +16,7 @@ const validationSchema = Yup.object().shape({
     .oneOf([true], "The terms and conditions must be accepted."),
 });
 
-function LoginScreen(props) {
+function LoginScreen({ navigation }) {
   return (
     <>
       <View style={[styles.container, { flex: 1, width: "100%" }]}>
@@ -35,7 +35,7 @@ function LoginScreen(props) {
             password: "",
             termsOfService: false,
           }}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={(values) => navigation.navigate("Welcome")}
           validationSchema={validationSchema}
         >
           <FormField
