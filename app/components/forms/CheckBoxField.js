@@ -60,7 +60,6 @@ function CheckBoxField({ name, width, ...otherProps }) {
               style={{ backgroundColor: colors.primary, marginBottom: 15 }}
               title="I Understand"
               onPress={() => {
-                setIsSelected(true);
                 setIsVisible(false);
               }}
             />

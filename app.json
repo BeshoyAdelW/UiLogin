@@ -18,6 +18,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "In \"UI Login\" App, you will be able to view app welcome screen which directs to login screen. The app will allow you to input username and password to login, or you can create a new user account, all input fields are validated.",
+    "githubUrl": "https://github.com/BeshoyAdelW/UiLogin"
   }
 }
